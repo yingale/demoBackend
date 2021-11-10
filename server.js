@@ -14,10 +14,14 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/visitors.routes.js")(app);
-function sendEmail() {
+
+/* To send data from redis to mysql */
+function sendToDb() {
    visitors.offLoadData();
 }
-setInterval(sendEmail, 3000);
+setInterval(sendToDb, 2000);
+
+/* To send data from redis to mysql */
 
 
 app.listen(3000, () => {
